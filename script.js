@@ -6,6 +6,7 @@ function initializeGrid(horizontalCellCount, verticalCellCount){
         for(let hor = 0; hor < horizontalCellCount; hor++)
         {
             let newCell = document.createElement('div');
+            newCell.classList.add('grid-item');
             newCell.dataset.x = hor;
             newCell.dataset.y = vert;
             gridContainer.appendChild(newCell);
