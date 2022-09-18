@@ -1,5 +1,21 @@
+@font-face {
+    font-family: 'Litebulb';
+    src: url(fonts/Litebulb.ttf);
+}
+
+body {
+    background-color: #87CEEB;
+}
+
 .wrapper {
     margin: auto;
+}
+
+.header {
+    text-align: center;
+    font-family: Litebulb, sans-serif;
+    font-size: 4em;
+    color: white;
 }
 
 #grid-container {
@@ -9,6 +25,9 @@
     grid-gap: 1px;
     border: 1px solid;
     background-color: black;
+    -webkit-box-shadow: 6px 5px 9px -3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 6px 5px 9px -3px rgba(0, 0, 0, 0.15);
+    box-shadow: 6px 5px 9px -3px rgba(0, 0, 0, 0.15);
 }
 
 #grid-container div {
