@@ -19,7 +19,7 @@ function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
     for (let i = 0; i < horizontalCellCount; i++) {
         styleTag += ' 1fr';
     }
-    
+
     gridContainer.style.cssText = styleTag + ';';
 }
 
