@@ -12,6 +12,21 @@ function initializeGrid(horizontalCellCount, verticalCellCount){
             gridContainer.appendChild(newCell);
         }
     }
+
+    setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount);
+}
+
+function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount){
+    let styleTag = 'grid-template-columns: ';
+    for(let i = 0; i < horizontalCellCount; i++){
+        styleTag += ' auto';
+    }
+
+    styleTag += '; grid-template-rows: ';
+    for(let i = 0; i < verticalCellCount; i++){
+        styleTag += ' auto';
+    }
+    gridContainer.style.cssText = styleTag + ';';
 }
 
 initializeGrid(16,16);
