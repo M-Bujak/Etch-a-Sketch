@@ -7,6 +7,10 @@
     display: grid;
 }
 
+#grid-container div {
+    aspect-ratio: 1;
+}
+
 .grid-item {
     border: 1px solid;
 }
