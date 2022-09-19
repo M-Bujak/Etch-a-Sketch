@@ -17,7 +17,8 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
 
 function drawOnMouseEnter(e) {
     console.log(e);
-    e.composedPath()[0].classList.add('grid-item-darkened');
+    let chosenColor = '#D3D3D3';
+    e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
 }
 
 function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {

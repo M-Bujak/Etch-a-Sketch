@@ -37,7 +37,3 @@ body {
 .grid-item {
     background-color: white;
 }
-
-.grid-item-darkened {
-    background-color: grey;
-}
