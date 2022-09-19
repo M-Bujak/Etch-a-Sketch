@@ -36,3 +36,7 @@ body {
 .grid-item {
     background-color: white;
 }
+
+.grid-item-highlight {
+    border: 1px dashed black;
+}
