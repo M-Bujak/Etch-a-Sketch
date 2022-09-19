@@ -84,6 +84,9 @@ function initializeColorSelection(colorPalette) {
         let newColorSwatch = document.createElement('div');
         newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
         newColorSwatch.classList.add('color-swatch');
+        if(i === currentColorIndex) {
+            newColorSwatch.classList.add('color-swatch-active');
+        }
         newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e)});
         newColorSwatch.dataset.palette_index = i;
 
