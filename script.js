@@ -24,7 +24,7 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
             newCell.addEventListener('click', function (e) { drawOnMouseClick(e); });
             newCell.addEventListener('mouseenter', function (e) { highlightSelection(e); });
             newCell.addEventListener('mouseleave', function (e) { unhighlightSelection(e); });
-            newCell.addEventListener('mouseover', function (e) { drawOnMouseHover(e); });
+            newCell.addEventListener('mouseover', function (e) { drawOnMouseOver(e); });
             newCell.dataset.x = hor;
             newCell.dataset.y = vert;
             gridContainer.appendChild(newCell);
@@ -39,7 +39,7 @@ function drawOnMouseClick(e) {
     e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
 }
 
-function drawOnMouseHover(e) {
+function drawOnMouseOver(e) {
     if (drawOnHover === true) {
         let chosenColor = '#D3D3D3';
         e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
