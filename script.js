@@ -14,8 +14,6 @@ function disableDrawOnHover(e) {
     drawOnHover = false;
 }
 
-
-
 function initializeGrid(horizontalCellCount, verticalCellCount) {
     for (let vert = 0; vert < verticalCellCount; vert++) {
         for (let hor = 0; hor < horizontalCellCount; hor++) {
@@ -34,15 +32,18 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
     setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount);
 }
 
+// Rainbow Pastels Color Scheme - by SchemeColor.com 
+let currentColorPalette = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA', '#FFFFFF'];
+let currentColorIndex = 1;
+let activeColor = currentColorPalette[currentColorIndex];
+
 function drawOnMouseClick(e) {
-    let chosenColor = '#D3D3D3';
-    e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+    e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
 }
 
 function drawOnMouseOver(e) {
     if (drawOnHover === true) {
-        let chosenColor = '#D3D3D3';
-        e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+        e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
     }
 }
 
@@ -76,4 +77,28 @@ function setGridSize(e) {
     console.log("a");
 }
 
+const colorSelection = document.getElementById('color-selection');
+
+function initializeColorSelection(colorPalette) {
+    for (let i = 0; i < colorPalette.length; i++) {
+        let newColorSwatch = document.createElement('div');
+        newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
+        newColorSwatch.classList.add('color-swatch');
+        newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e)});
+        newColorSwatch.dataset.palette_index = i;
+
+        colorSelection.appendChild(newColorSwatch);
+    }
+}
+
+function changeActiveColor(e) {
+    console.log(e);
+    let previousActiveColorQuery = "[data-palette_index=\"" + currentColorIndex + "\"]";
+    document.querySelector(previousActiveColorQuery).classList.remove('color-swatch-active');
+    e.composedPath()[0].classList.add('color-swatch-active');
+    currentColorIndex = e.composedPath()[0].dataset.palette_index;
+    activeColor = currentColorPalette[currentColorIndex];
+}
+
+initializeColorSelection(currentColorPalette);
 initializeGrid(16, 16);
