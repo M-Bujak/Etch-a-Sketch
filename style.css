@@ -9,6 +9,7 @@ body {
 
 .wrapper {
     margin: auto;
+    max-width: 500px;
 }
 
 .header {
@@ -16,6 +17,11 @@ body {
     font-family: Litebulb, sans-serif;
     font-size: 4em;
     color: white;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
 }
 
 #grid-container {
