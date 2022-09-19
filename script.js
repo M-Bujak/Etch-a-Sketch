@@ -46,7 +46,7 @@ function setGridSize(e) {
     e.preventDefault();
     const gridSizeFormInput = document.getElementById('form-grid-size').value;
     if (gridSizeFormInput > 0 && gridSizeFormInput <= 100) {
-        gridContainer.innerHTML='';
+        gridContainer.innerHTML = '';
         initializeGrid(gridSizeFormInput, gridSizeFormInput);
     }
 
