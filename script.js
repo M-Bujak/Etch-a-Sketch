@@ -32,7 +32,10 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
     setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount);
 }
 
-let activeColor = '#D3D3D3';
+// Rainbow Pastels Color Scheme - by SchemeColor.com 
+let currentColorPalette = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA', '#FFFFFF'];
+let currentColorIndex = 1;
+let activeColor = currentColorPalette[currentColorIndex];
 
 function drawOnMouseClick(e) {
     e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
@@ -75,10 +78,6 @@ function setGridSize(e) {
 }
 
 const colorSelection = document.getElementById('color-selection');
-
-// Rainbow Pastels Color Scheme - by SchemeColor.com 
-let currentColorPalette = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA'];
-let currentColorIndex = 1;
 
 function initializeColorSelection(colorPalette) {
     for (let i = 0; i < colorPalette.length; i++) {
