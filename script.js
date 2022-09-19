@@ -35,14 +35,12 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
 let activeColor = '#D3D3D3';
 
 function drawOnMouseClick(e) {
-    let chosenColor = '#D3D3D3';
-    e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+    e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
 }
 
 function drawOnMouseOver(e) {
     if (drawOnHover === true) {
-        let chosenColor = '#D3D3D3';
-        e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+        e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
     }
 }
 
