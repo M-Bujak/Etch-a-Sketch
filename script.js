@@ -5,6 +5,7 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
         for (let hor = 0; hor < horizontalCellCount; hor++) {
             let newCell = document.createElement('div');
             newCell.classList.add('grid-item');
+            newCell.addEventListener('mouseenter', function(e) { drawOnMouseEnter(e);});
             newCell.dataset.x = hor;
             newCell.dataset.y = vert;
             gridContainer.appendChild(newCell);
@@ -12,6 +13,12 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
     }
 
     setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount);
+}
+
+function drawOnMouseEnter(e) {
+    console.log(e);
+    let chosenColor = '#D3D3D3';
+    e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
 }
 
 function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
