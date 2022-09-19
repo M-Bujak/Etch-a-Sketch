@@ -1,6 +1,6 @@
 # Etch-a-Sketch
 <p align="center">
-  <img src="[https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true](https://user-images.githubusercontent.com/62397807/191094528-a90cb792-1417-4187-aeb5-f021151b63d3.png)" alt="Screenshot of the Etch-a-Sketch UI"/>
+  <img src="https://user-images.githubusercontent.com/62397807/191094528-a90cb792-1417-4187-aeb5-f021151b63d3.png" alt="Screenshot of the Etch-a-Sketch UI"/>
 </p>
 
 Etch-a-Sketch is a project done as part of The Odin Project course curriculum. It's a simple pixel art painting canvas with a cute pastel color palette written using HTML, CSS and Javascript.
