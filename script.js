@@ -93,6 +93,9 @@ function initializeColorSelection(colorPalette) {
 
 function changeActiveColor(e) {
     console.log(e);
+    let previousActiveColorQuery = "[data-palette_index=\"" + currentColorIndex + "\"]";
+    document.querySelector(previousActiveColorQuery).classList.remove('color-swatch-active');
+    e.composedPath()[0].classList.add('color-swatch-active');
     currentColorIndex = e.composedPath()[0].dataset.palette_index;
     activeColor = currentColorPalette[currentColorIndex];
 }
