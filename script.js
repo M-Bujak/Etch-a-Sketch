@@ -14,8 +14,6 @@ function disableDrawOnHover(e) {
     drawOnHover = false;
 }
 
-
-
 function initializeGrid(horizontalCellCount, verticalCellCount) {
     for (let vert = 0; vert < verticalCellCount; vert++) {
         for (let hor = 0; hor < horizontalCellCount; hor++) {
@@ -76,4 +74,21 @@ function setGridSize(e) {
     console.log("a");
 }
 
+const colorSelection = document.getElementById('color-selection');
+
+// Rainbow Pastels Color Scheme - by SchemeColor.com 
+let currentColorPalette = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA'];
+let currentColorIndex = 1;
+
+function initializeColorSelection(colorPalette) {
+    for (let i = 0; i < colorPalette.length; i++) {
+        let newColorSwatch = document.createElement('div');
+        newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
+        newColorSwatch.classList.add('color-swatch');
+
+        colorSelection.appendChild(newColorSwatch);
+    }
+}
+
+initializeColorSelection(currentColorPalette);
 initializeGrid(16, 16);
