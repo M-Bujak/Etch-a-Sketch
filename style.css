@@ -37,14 +37,19 @@ body {
 #color-selection {
     display: flex;
     flex-direction: row;
-    gap: 5px;
 }
 
 .color-swatch {
     border: black solid 1px;
     border-radius: 2px;
-    height: 100%;
+    height: 19px;
+    margin: 2px 3px 3px 2px;
     aspect-ratio: 1;
+}
+
+.color-swatch-active {
+    border: black double 3px;
+    margin: 0px 1px 1px 0px;
 }
 
 form > * {
