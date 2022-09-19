@@ -22,6 +22,12 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
+    background-color: white;
+    border: rgb(236, 236, 236) solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #grid-container {
