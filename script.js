@@ -32,6 +32,8 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
     setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount);
 }
 
+let activeColor = '#D3D3D3';
+
 function drawOnMouseClick(e) {
     let chosenColor = '#D3D3D3';
     e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
@@ -85,9 +87,17 @@ function initializeColorSelection(colorPalette) {
         let newColorSwatch = document.createElement('div');
         newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
         newColorSwatch.classList.add('color-swatch');
+        newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e)});
+        newColorSwatch.dataset.palette_index = i;
 
         colorSelection.appendChild(newColorSwatch);
     }
+}
+
+function changeActiveColor(e) {
+    console.log(e);
+    currentColorIndex = e.composedPath()[0].dataset.palette_index;
+    activeColor = currentColorPalette[currentColorIndex];
 }
 
 initializeColorSelection(currentColorPalette);
