@@ -1,4 +1,20 @@
 const gridContainer = document.getElementById('grid-container');
+gridContainer.addEventListener('mousedown', function (e) { enableDrawOnHover(e); });
+gridContainer.addEventListener('mouseup', function (e) { disableDrawOnHover(e); });
+gridContainer.addEventListener('mouseleave', function (e) { disableDrawOnHover(e); });
+
+
+let drawOnHover = false;
+
+function enableDrawOnHover(e) {
+    drawOnHover = true;
+}
+
+function disableDrawOnHover(e) {
+    drawOnHover = false;
+}
+
+
 
 function initializeGrid(horizontalCellCount, verticalCellCount) {
     for (let vert = 0; vert < verticalCellCount; vert++) {
@@ -8,6 +24,7 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
             newCell.addEventListener('click', function (e) { drawOnMouseClick(e); });
             newCell.addEventListener('mouseenter', function (e) { highlightSelection(e); });
             newCell.addEventListener('mouseleave', function (e) { unhighlightSelection(e); });
+            newCell.addEventListener('mouseover', function (e) { drawOnMouseHover(e); });
             newCell.dataset.x = hor;
             newCell.dataset.y = vert;
             gridContainer.appendChild(newCell);
@@ -18,9 +35,15 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
 }
 
 function drawOnMouseClick(e) {
-    console.log(e);
     let chosenColor = '#D3D3D3';
     e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+}
+
+function drawOnMouseHover(e) {
+    if (drawOnHover === true) {
+        let chosenColor = '#D3D3D3';
+        e.composedPath()[0].style = 'background-color: ' + chosenColor + ';';
+    }
 }
 
 function highlightSelection(e) {
