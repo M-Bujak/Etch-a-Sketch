@@ -5,9 +5,9 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
         for (let hor = 0; hor < horizontalCellCount; hor++) {
             let newCell = document.createElement('div');
             newCell.classList.add('grid-item');
-            newCell.addEventListener('click', function(e) { drawOnMouseClick(e);});
-            newCell.addEventListener('mouseenter', function(e) { highlightSelection(e);});
-            newCell.addEventListener('mouseleave', function(e) { unhighlightSelection(e);});
+            newCell.addEventListener('click', function (e) { drawOnMouseClick(e); });
+            newCell.addEventListener('mouseenter', function (e) { highlightSelection(e); });
+            newCell.addEventListener('mouseleave', function (e) { unhighlightSelection(e); });
             newCell.dataset.x = hor;
             newCell.dataset.y = vert;
             gridContainer.appendChild(newCell);
@@ -38,6 +38,19 @@ function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
     }
 
     gridContainer.style.cssText = styleTag + ';';
+}
+
+document.getElementById('form').addEventListener("submit", function (e) { setGridSize(e); });
+
+function setGridSize(e) {
+    e.preventDefault();
+    const gridSizeFormInput = document.getElementById('form-grid-size').value;
+    if (gridSizeFormInput > 0 && gridSizeFormInput <= 100) {
+        gridContainer.innerHTML='';
+        initializeGrid(gridSizeFormInput, gridSizeFormInput);
+    }
+
+    console.log("a");
 }
 
 initializeGrid(16, 16);
