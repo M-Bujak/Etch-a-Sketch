@@ -52,9 +52,20 @@ body {
     margin: 0px 1px 1px 0px;
 }
 
-form > * {
+.right-menu {
+    display: flex;
+    align-items: center;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+form>* {
     font-weight: 300;
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
 }
 
 #grid-container {
