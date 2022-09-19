@@ -31,7 +31,12 @@ body {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 0.7em;
+    font-size: 0.7rem;
+}
+
+form > * {
+    font-weight: 300;
+    font-size: 0.7rem; 
 }
 
 #grid-container {
