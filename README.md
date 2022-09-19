@@ -1,6 +1,6 @@
 # Etch-a-Sketch
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/62397807/191095609-bcb1c77e-0bdb-4172-9414-45b1272dfeb3.png" alt="Screenshot of the Etch-a-Sketch UI"/>
+  <img src="https://user-images.githubusercontent.com/62397807/191095985-08add435-9674-45b7-888d-99f5379c5e1e.png" alt="Screenshot of the Etch-a-Sketch UI"/>
 </p>
 
 Etch-a-Sketch is a project done as part of The Odin Project course curriculum. It's a simple pixel art painting canvas with a cute pastel color palette written using HTML, CSS and Javascript.
