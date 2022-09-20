@@ -3,6 +3,10 @@
     src: url(fonts/Litebulb.ttf);
 }
 
+.hidden {
+    display: none !important;
+}
+
 body {
     background-color: #87CEEB;
     font-family: 'Roboto', sans-serif;

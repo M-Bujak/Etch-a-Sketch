@@ -39,18 +39,18 @@
         </div>
     </div>
 
-    <div class="confirmation-prompt box-shadow">
+    <div id="confirmation-prompt" class="confirmation-prompt box-shadow hidden">
         <span>
             Changing grid size will also erase your artwork. :(<br>
             Are you sure you want to continue?"
         </span>
         <div class="prompt-buttons">
-            <button class="prompt-yes thin-border">Yes</button>
-            <button class="prompt-no thin-border">No</button>
+            <button class="prompt-yes thin-border" onclick="confirmChangeOfGridSize(true)">Yes</button>
+            <button class="prompt-no thin-border" onclick="confirmChangeOfGridSize(false)">No</button>
         </div>
     </div>
     
-    <div id="dark-transparent-overlay" class="dark-transparent-overlay"></div>
+    <div id="dark-transparent-overlay" class="dark-transparent-overlay hidden"></div>
 </body>
 
 </html>

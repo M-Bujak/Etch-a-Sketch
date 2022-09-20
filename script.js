@@ -66,23 +66,41 @@ function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
     gridContainer.style.cssText = styleTag + ';';
 }
 
-document.getElementById('form').addEventListener("submit", function (e) { confirmChangeOfGridSize(e); });
+document.getElementById('form').addEventListener("submit", function (e) { checkIfChangeOfGridSizeNeedsToBeConfirmed(e); });
+let gridSizeFormInput;
 
-function confirmChangeOfGridSize(e) {
+function checkIfChangeOfGridSizeNeedsToBeConfirmed(e) {
+    e.preventDefault();
+    gridSizeFormInput = document.getElementById('form-grid-size').value;
     if (userHasDrawnOnCurrentGrid) {
-        let isConfirmed = confirm("Changing grid size will also erase your artwork. :(\nAre you sure you want to continue?");
-
-        if (isConfirmed) {
-            setGridSize(e);
-        }
+        showConfirmationPrompt();
     } else {
-        setGridSize(e);
+        setGridSize();
     }
 }
 
-function setGridSize(e) {
-    e.preventDefault();
-    const gridSizeFormInput = document.getElementById('form-grid-size').value;
+const confirmationPrompt = document.getElementById('confirmation-prompt');
+const darkTransparentOverlay = document.getElementById('dark-transparent-overlay');
+
+function showConfirmationPrompt() {
+    confirmationPrompt.classList.remove('hidden');
+    darkTransparentOverlay.classList.remove('hidden');
+}
+
+function hideConfirmationPrompt() {
+    confirmationPrompt.classList.add('hidden');
+    darkTransparentOverlay.classList.add('hidden');
+}
+
+function confirmChangeOfGridSize(decision) {
+    if (decision === true) {
+        setGridSize();
+    }
+
+    hideConfirmationPrompt();
+}
+
+function setGridSize() {
     if (gridSizeFormInput > 0 && gridSizeFormInput <= 100) {
         gridContainer.innerHTML = '';
         initializeGrid(gridSizeFormInput, gridSizeFormInput);
