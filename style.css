@@ -7,6 +7,10 @@
     display: none !important;
 }
 
+.button-hover:hover {
+    cursor: pointer;
+}
+
 body {
     background-color: #87CEEB;
     font-family: 'Roboto', sans-serif;
