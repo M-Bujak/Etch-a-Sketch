@@ -140,7 +140,7 @@ form>* {
     width: 50px;
 }
 
-.prompt-overlay {
+.dark-transparent-overlay {
     position: fixed;
     z-index: 999;
     top: 0;
