@@ -64,7 +64,15 @@ function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
     gridContainer.style.cssText = styleTag + ';';
 }
 
-document.getElementById('form').addEventListener("submit", function (e) { setGridSize(e); });
+document.getElementById('form').addEventListener("submit", function (e) { confirmChangeOfGridSize(e); });
+
+function confirmChangeOfGridSize(e) {
+    let isConfirmed = confirm("Changing grid size will also erase your artwork. :(\nAre you sure you want to continue?");
+
+    if(isConfirmed) {
+        setGridSize(e);
+    }
+}
 
 function setGridSize(e) {
     e.preventDefault();
