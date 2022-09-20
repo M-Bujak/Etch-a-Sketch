@@ -117,8 +117,10 @@ function initializeColorSelection(colorPalette) {
         let newColorSwatch = document.createElement('div');
         newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
         newColorSwatch.classList.add('color-swatch');
+        newColorSwatch.classList.add('button-hover');
         if (i === currentColorIndex) {
             newColorSwatch.classList.add('color-swatch-active');
+            newColorSwatch.classList.remove('button-hover');
         }
         newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e) });
         newColorSwatch.dataset.palette_index = i;
@@ -130,8 +132,11 @@ function initializeColorSelection(colorPalette) {
 function changeActiveColor(e) {
     console.log(e);
     let previousActiveColorQuery = "[data-palette_index=\"" + currentColorIndex + "\"]";
-    document.querySelector(previousActiveColorQuery).classList.remove('color-swatch-active');
+    let previousActiveColorSwatch = document.querySelector(previousActiveColorQuery);
+    previousActiveColorSwatch.classList.remove('color-swatch-active');
+    previousActiveColorSwatch.classList.add('button-hover');
     e.composedPath()[0].classList.add('color-swatch-active');
+    e.composedPath()[0].classList.remove('button-hover');
     currentColorIndex = e.composedPath()[0].dataset.palette_index;
     activeColor = currentColorPalette[currentColorIndex];
 }
