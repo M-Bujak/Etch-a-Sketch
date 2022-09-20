@@ -1,5 +1,5 @@
 const gridContainer = document.getElementById('grid-container');
-gridContainer.addEventListener('mousedown', function (e) { enableDrawOnHover(e); });
+gridContainer.addEventListener('mousedown', function (e) { enableDrawOnHover(e); drawOnMouseClick(e); });
 gridContainer.addEventListener('mouseup', function (e) { disableDrawOnHover(e); });
 gridContainer.addEventListener('mouseleave', function (e) { disableDrawOnHover(e); });
 gridContainer.addEventListener('dragstart', function (e) { e.preventDefault()});
