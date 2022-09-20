@@ -83,6 +83,11 @@ form>* {
     box-shadow: 6px 5px 9px -3px rgba(0, 0, 0, 0.15);
 }
 
+.thin-border {
+    border: black solid 1px;
+    border-radius: 2px;
+}
+
 #grid-container div {
     aspect-ratio: 1;
 }
@@ -115,4 +120,21 @@ form>* {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.prompt-buttons {
+    display: flex;
+    flex: 0 0;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.prompt-yes {
+    background-color: #E2F0CB;
+    width: 50px;
+}
+
+.prompt-no {
+    background-color: #FFB7B2;
+    width: 50px;
 }
