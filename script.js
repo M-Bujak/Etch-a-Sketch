@@ -2,7 +2,7 @@ const gridContainer = document.getElementById('grid-container');
 gridContainer.addEventListener('mousedown', function (e) { enableDrawOnHover(e); drawOnMouseClick(e); });
 gridContainer.addEventListener('mouseup', function (e) { disableDrawOnHover(e); });
 gridContainer.addEventListener('mouseleave', function (e) { disableDrawOnHover(e); });
-gridContainer.addEventListener('dragstart', function (e) { e.preventDefault()});
+gridContainer.addEventListener('dragstart', function (e) { e.preventDefault() });
 
 let drawOnHover = false;
 
@@ -36,9 +36,11 @@ function initializeGrid(horizontalCellCount, verticalCellCount) {
 let currentColorPalette = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA', '#FFFFFF'];
 let currentColorIndex = 1;
 let activeColor = currentColorPalette[currentColorIndex];
+let userHasDrawnOnCurrentGrid = false;
 
 function drawOnMouseClick(e) {
     e.composedPath()[0].style = 'background-color: ' + activeColor + ';';
+    userHasDrawnOnCurrentGrid = true;
 }
 
 function drawOnMouseOver(e) {
@@ -67,9 +69,13 @@ function setNumberOfRowsAndColumns(horizontalCellCount, verticalCellCount) {
 document.getElementById('form').addEventListener("submit", function (e) { confirmChangeOfGridSize(e); });
 
 function confirmChangeOfGridSize(e) {
-    let isConfirmed = confirm("Changing grid size will also erase your artwork. :(\nAre you sure you want to continue?");
+    if (userHasDrawnOnCurrentGrid) {
+        let isConfirmed = confirm("Changing grid size will also erase your artwork. :(\nAre you sure you want to continue?");
 
-    if(isConfirmed) {
+        if (isConfirmed) {
+            setGridSize(e);
+        }
+    } else {
         setGridSize(e);
     }
 }
@@ -81,6 +87,7 @@ function setGridSize(e) {
         gridContainer.innerHTML = '';
         initializeGrid(gridSizeFormInput, gridSizeFormInput);
     }
+    userHasDrawnOnCurrentGrid = false;
 
     console.log("a");
 }
@@ -92,10 +99,10 @@ function initializeColorSelection(colorPalette) {
         let newColorSwatch = document.createElement('div');
         newColorSwatch.style = 'background-color: ' + colorPalette[i] + ';';
         newColorSwatch.classList.add('color-swatch');
-        if(i === currentColorIndex) {
+        if (i === currentColorIndex) {
             newColorSwatch.classList.add('color-swatch-active');
         }
-        newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e)});
+        newColorSwatch.addEventListener('click', function (e) { changeActiveColor(e) });
         newColorSwatch.dataset.palette_index = i;
 
         colorSelection.appendChild(newColorSwatch);
